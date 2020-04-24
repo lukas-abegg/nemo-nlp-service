@@ -4,17 +4,12 @@ import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 # Import Heapq for Finding the Top N Sentences
 from heapq import nlargest
-
-print("Loading...")
-MODELS = {
-    "en_core_web_sm": spacy.load("en_core_web_sm")
-}
-print("Loaded!")
-nlp = MODELS['en_core_web_sm']
+from app.spacy.spacy_models import MODELS
 
 
 def text_summarizer(raw_docx):
     raw_text = raw_docx
+    nlp = MODELS['en_core_web_sm']
     docx = nlp(raw_text)
     stopwords = list(STOP_WORDS)
     # Build Word Frequency # word.text is tokenization in spacy

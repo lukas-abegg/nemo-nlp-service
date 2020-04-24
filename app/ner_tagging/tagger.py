@@ -1,18 +1,11 @@
 from app import app
 
 from flask import render_template, request
-import spacy
 from spacy import displacy
 
+from app.spacy.spacy_models import MODELS
+
 import time
-
-print("Loading...")
-MODELS = {
-    "en_core_web_sm": spacy.load("en_core_web_sm"),
-    "en_trf_bertbaseuncased_lg": spacy.load("en_trf_bertbaseuncased_lg")
-}
-print("Loaded!")
-
 
 @app.route('/ner_extractor')
 def ner_extractor():

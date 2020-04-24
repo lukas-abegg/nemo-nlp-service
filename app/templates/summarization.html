@@ -5,8 +5,14 @@
 
     <!-- Start -->
     <div class="container">
-        <div class="section">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
 
+        <div class="section">
             <!--   Icon Section   -->
             <div class="row">
                 <div class="input-field col s12 m10">

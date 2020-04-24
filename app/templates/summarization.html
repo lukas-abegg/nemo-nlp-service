@@ -1,0 +1,36 @@
+{% extends "modules/main.html" %}
+{% block body %}
+    <body>
+    {% include 'modules/summarization_header.html' %}
+
+    <!-- Start -->
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="input-field col s12 m10">
+                    <div class="icon-block">
+                        <form method="POST" action="{{ url_for('summarization_extracted') }}">
+                            <textarea name="rawtext" cols="3" rows="5" class="form-control" required="true"
+                                      placeholder="Enter Text Here"></textarea>
+
+                            <br/>
+                            <button class="btn btn-small waves-effect waves-light  light-blue lighten-1" type="reset">
+                                Clear
+                            </button>
+                            <button class="btn btn-small waves-effect waves-light purple lighten-1" type="submit">
+                                Summarize
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- End -->
+    </body>
+{% endblock %}

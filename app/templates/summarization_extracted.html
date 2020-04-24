@@ -1,0 +1,95 @@
+{% extends "modules/main.html" %}
+{% block body %}
+    <body>
+    {% include 'modules/summarization_header.html' %}
+
+    <!-- Results -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8">
+                    <div class="icon-block">
+                        <h5 class="center">Your Text</h5>
+
+                        <p class="light">{{ ctext }}</p>
+                        <div class="alert alert-info" role="alert">
+                            <p>Time Elapsed: <span style="color:#0091EA;">{{ final_time }} </span></p>
+                            <p style="margin-bottom: 0px;">Reading Time: <span style="color:#0091EA;">{{ final_reading_time }} </span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- SECTION: RESULTS FOR DIFFERENT SUMMARIZERS -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <ul class="tabs">
+                                <li class="tab col s3">
+                                    <a href="#tab1" class="blue-text">SpaCy Summarizer</a>
+                                </li>
+                                <li class="tab col s3">
+                                    <a href="#tab2" class="blue-text">Gensim Summarizer</a>
+                                </li>
+                                <li class="tab col s3">
+                                    <a href="#tab3" class="blue-text">NLTK</a>
+                                </li>
+                                <li class="tab col s3">
+                                    <a href="#tab4" class="blue-text">Sumy LexRank</a>
+                                </li>
+
+                            </ul>
+                    <div class="row">
+                        <div id="tab1" class="col s12">
+                            <h5>SpaCy</h5>
+                            <div class=""><p>Reading Time: <span
+                                    style="color:#0091EA;">{{ summary_reading_time }} min  </span></p></div>
+                            <div class="grey lighten-1"><p
+                                    style="padding:5px;font-size:14px;">{{ final_summary_spacy }}</p></div>
+
+
+                        </div>
+                        <div id="tab2" class="col s12">
+                            <h5>Gensim Summarizer</h5>
+
+                            <div class=""><p>Reading Time: <span
+                                    style="color:#0091EA;">{{ summary_reading_time_gensim }}  min </span></p>
+                            </div>
+                            <div class="grey lighten-2"><p
+                                    style="padding:5px;font-size:14px;">{{ final_summary_gensim }}</p></div>
+
+                        </div>
+                        <div id="tab3" class="col s12">
+                            <h5>NLTK</h5>
+                            <div class=""><p>Reading Time: <span style="color:#0091EA;">{{ summary_reading_time_nltk }} min  </span>
+                            </p>
+                            </div>
+                            <div class="grey lighten-1"><p
+                                    style="padding:5px;font-size:14px;">{{ final_summary_nltk }}</p></div>
+
+
+                        </div>
+                        <div id="tab4" class="col s12">
+                            <h5>Sumy Summarizer</h5>
+
+                            <div class=""><p>Reading Time: <span style="color:#0091EA;">{{ summary_reading_time_sumy }}  min </span>
+                            </p>
+                            </div>
+                            <div class="grey lighten-2"><p
+                                    style="padding:5px;font-size:14px;">{{ final_summary_sumy }}</p></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End -->
+    </body>
+{% endblock %}

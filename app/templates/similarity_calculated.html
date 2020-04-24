@@ -1,0 +1,75 @@
+{% extends "modules/main.html" %}
+{% block body %}
+    <body>
+    {% include 'modules/similarity_header.html' %}
+
+    <!-- Results -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8">
+                    <div class="icon-block">
+                        <h5 class="center">Your Text</h5>
+
+                        <p class="light"><b>Text 1</b>: {{ text1 }}</p>
+                        <br>
+                        <p class="light"><b>Text 2</b>: {{ text2 }}</p>
+                        <br>
+                        <p class="light"><b>Text 3</b>: {{ text3 }}</p>
+                        <div class="alert alert-info" role="alert">
+                            <p style="margin-bottom: 0px;">Time Elapsed: <span
+                                    style="color:#0091EA;">{{ final_time }} </span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- SECTION: RESULTS FOR DIFFERENT SUMMARIZERS -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <ul class="tabs">
+                        <li class="tab col s6">
+                            <a href="#tab1" class="blue-text">BERT</a>
+                        </li>
+                        <li class="tab col s6">
+                            <a href="#tab2" class="blue-text">Spacy</a>
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div id="tab1" class="col s12">
+                            <h5>BERT</h5>
+                            <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 2</b>: <span
+                                    style="color:#0091EA;">{{ sim1_bert }}</span></p></div>
+                            <br>
+                            <div class=""><p>Calculated Similarity between <b>Text 1</b> and Text 3</b>: <span
+                                    style="color:#0091EA;">{{ sim2_bert }}</span></p></div>
+                            <br>
+                            <div class=""><p>Calculated Similarity between <b>Text 2</b> and Text 3</b>: <span
+                                    style="color:#0091EA;">{{ sim3_bert }}</span></p></div>
+                        </div>
+                        <div id="tab2" class="col s12">
+                            <h5>Spacy</h5>
+                            <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 2</b>: <span
+                                    style="color:#0091EA;">{{ sim1_spacy }}</span></p></div>
+                            <br>
+                            <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 3</b>: <span
+                                    style="color:#0091EA;">{{ sim2_spacy }}</span></p></div>
+                            <br>
+                            <div class=""><p>Calculated Similarity between <b>Text 2</b> and <b>Text 3</b>: <span
+                                    style="color:#0091EA;">{{ sim3_spacy }}</span></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End -->
+
+    </body>
+{% endblock %}

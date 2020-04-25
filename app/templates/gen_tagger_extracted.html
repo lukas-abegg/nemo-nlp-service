@@ -1,7 +1,7 @@
 {% extends "modules/main.html" %}
 {% block body %}
     <body>
-    {% include 'modules/ner_header.html' %}
+    {% include 'modules/gen_tagger_header.html' %}
 
     <!-- Results -->
     <section class="section section-solutions-about grey lighten-3 ">
@@ -31,7 +31,7 @@
                 <div class="col s12 m12">
                     <ul class="tabs">
                         <li class="tab col s12">
-                            <a href="#tab1" class="blue-text">SpaCy NER-Tagger</a>
+                            <a href="#tab1" class="blue-text">SpaCy Tagger in {{ lang }}</a>
                         </li>
                     </ul>
                     <div class="row">

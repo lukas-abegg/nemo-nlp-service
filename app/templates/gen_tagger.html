@@ -1,7 +1,7 @@
 {% extends "modules/main.html" %}
 {% block body %}
     <body>
-    {% include 'modules/ner_header.html' %}
+    {% include 'modules/gen_tagger_header.html' %}
 
     <!-- Start -->
     <div class="container">
@@ -10,7 +10,19 @@
             <!--   Icon Section   -->
             <div class="row">
                 <div class="input-field col s12 m10">
-                    <form method="POST" action="{{ url_for('ner_extracted_tagging') }}">
+                    <form method="POST" action="{{ url_for('gen_tagger_extracted') }}">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary light-blue active form-check-label">
+                                <input class="form-check-input" type="radio" checked value="de" name="lang" autocomplete="off">
+                                German
+                            </label>
+                            <label class="btn btn-primary light-blue form-check-label">
+                                <input class="form-check-input" type="radio" value="en" name="lang" autocomplete="off">
+                                English
+                            </label>
+                        </div>
+                        <br>
+                        <br>
                         <textarea name="rawtext" cols="3" rows="5" class="form-control" required="true"
                                   placeholder="Enter Text Here"></textarea>
                         <br/>

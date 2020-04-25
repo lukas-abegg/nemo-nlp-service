@@ -1,0 +1,65 @@
+{% extends "modules/main.html" %}
+{% block body %}
+    <body>
+    {% include 'modules/med_tagger_header.html' %}
+
+    <!-- Results -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8">
+                    <div class="icon-block">
+                        <h5 class="center">Your Text</h5>
+
+                        <p class="light">{{ rawtext }}</p>
+                        <div class="alert alert-info" role="alert">
+                            <p style="margin-bottom: 0px;">Time Elapsed: <span
+                                    style="color:#0091EA;">{{ final_time }} </span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- SECTION: RESULTS FOR DIFFERENT SUMMARIZERS -->
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12">
+                    <ul class="tabs">
+                        <li class="tab col s6">
+                            <a href="#tab1" class="blue-text">SpaCy Entity Tagger</a>
+                        </li>
+                        <li class="tab col s6">
+                            <a href="#tab2" class="blue-text">SpaCy Disease Tagger</a>
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div id="tab1" class="col s12">
+                            <h5>SpaCy Core Tagger</h5>
+                            <div class=""><p>Generation Time: <span
+                                    style="color:#0091EA;">{{ tagging_gen_time_core }} min  </span></p></div>
+                            <div class="grey lighten-1"><p
+                                    style="padding:5px;font-size:14px;">{{ result_core|markdown }}</p></div>
+
+                        </div>
+                        <div id="tab2" class="col s12">
+                            <h5>SpaCy Specific Tagger</h5>
+                            <div class=""><p>Generation Time: <span
+                                    style="color:#0091EA;">{{ tagging_gen_time_spacy }} min  </span></p></div>
+                            <div class="grey lighten-1"><p
+                                    style="padding:5px;font-size:14px;">{{ result_spacy|markdown }}</p></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End -->
+
+    </body>
+{% endblock %}

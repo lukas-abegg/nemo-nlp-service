@@ -12,6 +12,20 @@
                 <div class="input-field col s12 m10">
                     <div class="icon-block">
                         <form method="POST" action="{{ url_for('similarity_calculated') }}">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary light-blue active form-check-label">
+                                    <input class="form-check-input" type="radio" checked value="de" name="lang"
+                                           autocomplete="off">
+                                    German
+                                </label>
+                                <label class="btn btn-primary light-blue form-check-label">
+                                    <input class="form-check-input" type="radio" value="en" name="lang"
+                                           autocomplete="off">
+                                    English
+                                </label>
+                            </div>
+                            <br>
+                            <br>
                             <textarea name="rawtext1" cols="3" rows="1" class="form-control" required="true"
                                       placeholder="Enter Text 1 Here"></textarea>
                             <br>

@@ -3,7 +3,8 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">NLP Services Prototypes</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('ner_extractor') }}">NER Tagging</a></li>
+                <li><a href="{{ url_for('gen_tagger') }}">General Text Tagger</a></li>
+                <li><a href="{{ url_for('med_tagger') }}">Medical Text Tagger</a></li>
                 <li><a href="{{ url_for('summarization') }}">Summarization</a></li>
                 <li><a href="{{ url_for('similarity') }}">Similarity Calculation</a></li>
             </ul>
@@ -14,7 +15,8 @@
 </div>
 
 <ul id="nav-mobile" class="sidenav">
-    <li><a href="{{ url_for('ner_extractor') }}">NER Tagging</a></li>
+    <li><a href="{{ url_for('gen_tagger') }}">General Text Tagger</a></li>
+    <li><a href="{{ url_for('med_tagger') }}">Medical Text Tagger</a></li>
     <li><a href="{{ url_for('summarization') }}">Summarization</a></li>
     <li><a href="{{ url_for('similarity') }}">Similarity Calculation</a></li>
 </ul>

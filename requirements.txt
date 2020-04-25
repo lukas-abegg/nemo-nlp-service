@@ -10,6 +10,11 @@ urllib3>=                            1.24.1
 gensim>=                             3.6.0
 gensim-sum-ext>=                     0.1.2
 Flask-Markdown>=0.3
+scispacy~=0.2.4
 
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz#egg=en_core_web_sm==2.2.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
+https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-2.2.0/de_core_news_sm-2.2.0.tar.gz
 https://github.com/explosion/spacy-models/releases/download/en_trf_bertbaseuncased_lg-2.2.0/en_trf_bertbaseuncased_lg-2.2.0.tar.gz
+https://github.com/explosion/spacy-models/releases/download/de_trf_bertbasecased_lg-2.2.0/de_trf_bertbasecased_lg-2.2.0.tar.gz
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.2.4/en_core_sci_sm-0.2.4.tar.gz
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.2.4/en_ner_bc5cdr_md-0.2.4.tar.gz

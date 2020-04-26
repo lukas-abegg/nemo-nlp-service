@@ -11,11 +11,11 @@
                     <div class="icon-block">
                         <h5 class="center">Your Text</h5>
 
-                        <p class="light"><b>Text 1</b>: {{ text1 }}</p>
+                        <p class="light"><b>Text 1</b>: {{ texts[0] }}</p>
                         <br>
-                        <p class="light"><b>Text 2</b>: {{ text2 }}</p>
+                        <p class="light"><b>Text 2</b>: {{ texts[1] }}</p>
                         <br>
-                        <p class="light"><b>Text 3</b>: {{ text3 }}</p>
+                        <p class="light"><b>Text 3</b>: {{ texts[2] }}</p>
                         <div class="alert alert-info" role="alert">
                             <p style="margin-bottom: 0px;">Time Elapsed: <span
                                     style="color:#0091EA;">{{ final_time }} </span></p>
@@ -45,24 +45,24 @@
                         <div id="tab1" class="col s12">
                             <h5>BERT in {{ lang }}</h5>
                             <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 2</b>: <span
-                                    style="color:#0091EA;">{{ sim1_bert }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_bert[0] }}</span></p></div>
                             <br>
                             <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 3</b>: <span
-                                    style="color:#0091EA;">{{ sim2_bert }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_bert[1] }}</span></p></div>
                             <br>
                             <div class=""><p>Calculated Similarity between <b>Text 2</b> and <b>Text 3</b>: <span
-                                    style="color:#0091EA;">{{ sim3_bert }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_bert[2] }}</span></p></div>
                         </div>
                         <div id="tab2" class="col s12">
                             <h5>Spacy in {{ lang }}</h5>
                             <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 2</b>: <span
-                                    style="color:#0091EA;">{{ sim1_spacy }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_spacy[0] }}</span></p></div>
                             <br>
                             <div class=""><p>Calculated Similarity between <b>Text 1</b> and <b>Text 3</b>: <span
-                                    style="color:#0091EA;">{{ sim2_spacy }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_spacy[1] }}</span></p></div>
                             <br>
                             <div class=""><p>Calculated Similarity between <b>Text 2</b> and <b>Text 3</b>: <span
-                                    style="color:#0091EA;">{{ sim3_spacy }}</span></p></div>
+                                    style="color:#0091EA;">{{ sims_spacy[2] }}</span></p></div>
                         </div>
                     </div>
                 </div>

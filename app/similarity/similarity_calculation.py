@@ -11,6 +11,18 @@ def similarity():
     return render_template('similarity.html')
 
 
+def calculate_sims(nlp, texts: list):
+    doc1 = nlp(texts[0])
+    doc2 = nlp(texts[1])
+    doc3 = nlp(texts[2])
+
+    sim1_bert = (doc1[0].similarity(doc2[0]))
+    sim2_bert = (doc1[0].similarity(doc3[0]))
+    sim3_bert = (doc2[0].similarity(doc3[0]))
+
+    return [sim1_bert, sim2_bert, sim3_bert]
+
+
 @app.route('/similarity_calculated', methods=["GET", "POST"])
 def similarity_calculated():
     start = time.time()
@@ -23,41 +35,27 @@ def similarity_calculated():
 
         if lang == "de":
             lang_text = "German"
-            nlp_bert = MODELS['de_trf_bertbaseuncased_lg']
+            nlp_bert = MODELS['de_trf_bertbasecased_lg']
             nlp_spacy = MODELS['de_core_news_sm']
         else:
             lang_text = "English"
             nlp_bert = MODELS['en_trf_bertbaseuncased_lg']
             nlp_spacy = MODELS['en_core_web_sm']
 
+        raw_texts = [raw_text1, raw_text2, raw_text3]
+
         # Bert
-        doc1 = nlp_bert(raw_text1)
-        doc2 = nlp_bert(raw_text2)
-        doc3 = nlp_bert(raw_text3)
-        sim1_bert = (doc1[0].similarity(doc2[0]))
-        sim2_bert = (doc1[0].similarity(doc3[0]))
-        sim3_bert = (doc2[0].similarity(doc3[0]))
+        sims_bert = calculate_sims(nlp_bert, raw_texts)
 
         # Spacy
-        doc1 = nlp_spacy(raw_text1)
-        doc2 = nlp_spacy(raw_text2)
-        doc3 = nlp_spacy(raw_text3)
-        sim1_spacy = (doc1[0].similarity(doc2[0]))
-        sim2_spacy = (doc1[0].similarity(doc3[0]))
-        sim3_spacy = (doc2[0].similarity(doc3[0]))
+        sims_spacy = calculate_sims(nlp_spacy, raw_texts)
 
         end = time.time()
         final_time = end - start
     return render_template('similarity_calculated.html',
-                           text1=raw_text1,
-                           text2=raw_text2,
-                           text3=raw_text3,
-                           sim1_bert=sim1_bert,
-                           sim2_bert=sim2_bert,
-                           sim3_bert=sim3_bert,
-                           sim1_spacy=sim1_spacy,
-                           sim2_spacy=sim2_spacy,
-                           sim3_spacy=sim3_spacy,
+                           texts=raw_texts,
+                           sims_bert=sims_bert,
+                           sims_spacy=sims_spacy,
                            final_time=final_time,
                            lang=lang_text
                            )

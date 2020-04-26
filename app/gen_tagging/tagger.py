@@ -13,6 +13,12 @@ def gen_tagger():
     return render_template('gen_tagger.html')
 
 
+def render_entities_tagged(nlp, text: str):
+    docx_core = nlp(text)
+    html_core = displacy.render(docx_core, style="ent")
+    return html_core.replace("\n\n", "\n")
+
+
 @app.route('/gen_tagger_extracted', methods=["GET", "POST"])
 def gen_tagger_extracted():
     start = time.time()
@@ -28,9 +34,7 @@ def gen_tagger_extracted():
         else:
             lang_text = "English"
             nlp_spacy = MODELS['en_core_web_sm']
-        docx_spacy = nlp_spacy(raw_text)
-        html_spacy = displacy.render(docx_spacy, style="ent")
-        html_spacy = html_spacy.replace("\n\n", "\n")
+        html_spacy = render_entities_tagged(nlp_spacy, raw_text)
         end_spacy = time.time()
         tagging_gen_time_spacy = end_spacy - start_spacy
 

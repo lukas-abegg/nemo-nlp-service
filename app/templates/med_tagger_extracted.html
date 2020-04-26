@@ -19,8 +19,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
 
@@ -60,6 +58,26 @@
         </div>
     </section>
     <!-- End -->
+
+    <section class="section section-solutions-about grey lighten-3 ">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8">
+                    <div class="icon-block">
+                        <h5 class="center">UMLS linked Entities</h5>
+                        {% if umls_entries|length %}
+                            {% for ent in umls_entries %}
+                                <div class="alert alert-success">
+                                    <p><b>Name of Entry: </b><br>{{ ent[0] }}</p>
+                                    <div><b>Definition: </b><br>{{ ent[1] }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     </body>
 {% endblock %}

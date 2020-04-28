@@ -42,6 +42,7 @@ def med_tagger_extracted():
     start = time.time()
     if request.method == 'POST':
         raw_text = request.form['rawtext']
+        umls = request.form['umls']
 
         # en_core_sci_sm
         start_core = time.time()
@@ -51,7 +52,9 @@ def med_tagger_extracted():
         end_core = time.time()
         tagging_gen_time_core = end_core - start_core
 
-        umls_entries = link_to_UMLS(raw_text)
+        umls_entries = []
+        if umls == "on":
+            umls_entries = link_to_UMLS(raw_text)
 
         # en_ner_bc5cdr_md
         start_spacy = time.time()
